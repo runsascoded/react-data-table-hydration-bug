@@ -11,8 +11,7 @@ export default function Index() {
           <li><Link href={"/hydration-error"}>/hydration-error</Link>: hydration error while rendering a simple {rdtc} {DataTable}</li>
           <li><Link href={"/no-pagination-no-error"}>/no-pagination-no-error</Link>: commenting out the `pagination` property doesn't exhibit have the issue</li>
         </ul>
-        <p>Both pages above have been compiled, so you'll have to open the dev console to see the error, e.g.:</p>
-        <p><img src={""}/></p>
+        <p>Both pages above have been compiled, so you'll have to open the dev console to see the error</p>
         <p>Cloning the repo and running <code>next dev</code> allows for more context:</p>
         <p><a href={"/hydration-error.png"}><img width={800} src={"/hydration-error.png"}/></a></p>
         <p>See <a target={"_blank"} href={"https://github.com/runsascoded/react-data-table-hydration-bug"}>runsascoded/react-data-table-hydration-bug</a> on Github for more info.</p>
