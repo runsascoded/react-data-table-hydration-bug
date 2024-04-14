@@ -26,7 +26,7 @@ Then visit [localhost:3000/hydration-error] in your browser (port may differ if 
 
 You **may** see something like:
 
-![](screenshots/hydration-error.png)
+![](public/hydration-error.png)
 
 It doesn't always happen; it seems like something during the build process may be nondeterministic. From what I can tell, some `next dev` / `next build` deploys will always exhibit the issue, and it can persist across rebuilds, but on other rebuilds it will go away, (and stay away across rebuilds).
 
@@ -36,7 +36,7 @@ I've tried various configurations (browser console "Disable cache", different Ch
 
 [localhost:3000/no-pagination-no-error] is the same page, with [`DataTable`]'s `pagination` property commented out, and the error is not present:
 
-![](screenshots/no-pagination-no-error.png)
+![](public/no-pagination-no-error.png)
 
 `diff -u pages/hydration-error.tsx pages/no-pagination-no-error.tsx` shows:
 ```diff
@@ -55,6 +55,7 @@ I've tried various configurations (browser console "Disable cache", different Ch
 [This StackOverflow][SO] alludes to the same issue.
 
 ## Docker repro <a id="docker"></a>
+Run in dev mode (in Docker):
 ```bash
 img=react-data-table-hydration-bug
 docker build -t $img .
@@ -66,6 +67,14 @@ docker run --rm -it -p $PORT:3000 $img
 As above, [localhost:3001/hydration-error] may show a hydration error, while [localhost:3001/no-pagination-no-error] will not.
 
 This has reproduced the issue for me locally 3 of 3 attempts (re-building the Docker image using `--no-cache`).
+
+To test a built+exported static app in Docker:
+```bash
+docker run -it --rm --entrypoint http-server -p $PORT:3000 $img -p 3000 out
+```
+As above, [localhost:3001/hydration-error] may show a hydration error, though in this case it will only appear in the browser dev-tools console, and will be minified.
+
+This form has not reproduced the issue for me locally. Analogous build+`http-server` test directly on host has exhibited the error.
 
 [react-data-table-component]: https://github.com/jbetancur/react-data-table-component
 [localhost:3000/hydration-error]: http://localhost:3000/hydration-error
