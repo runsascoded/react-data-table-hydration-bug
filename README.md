@@ -8,9 +8,13 @@ pnpm install
 npm run dev
 ```
 
-Then visit [localhost:3000/hydration-error] in your browser, you'll see something like:
+Then visit [localhost:3000/hydration-error] in your browser, you **may** see something like:
 
 ![](screenshots/hydration-error.png)
+
+It doesn't always happen; it seems like something during the build process may be nondeterministic. From what I can tell, some `next dev` / `next build` deploys will always exhibit the issue, and it can persist across rebuilds, but on other rebuilds it will go away, (and stay away across rebuilds).
+
+I've tried various configurations (browser console "Disable cache", different Chrome profiles / refreshes, clean builds, etc.) but haven't figured out why the error sometimes occurs, and sometimes doesn't.
 
 [localhost:3000/no-pagination-no-error] is the same page, with [`DataTable`]'s `pagination` property commented out, and the error is not present:
 
@@ -33,4 +37,4 @@ Then visit [localhost:3000/hydration-error] in your browser, you'll see somethin
 [react-data-table-component]: https://github.com/jbetancur/react-data-table-component
 [localhost:3000/hydration-error]: http://localhost:3000/hydration-error
 [localhost:3000/no-pagination-no-error]: http://localhost:3000/no-pagination-no-error
-[`DataTable`]: 
+[`DataTable`]: https://github.com/jbetancur/react-data-table-component/blob/v7.6.2/src/DataTable/DataTable.tsx
