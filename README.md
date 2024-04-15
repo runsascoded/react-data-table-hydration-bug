@@ -26,7 +26,6 @@ export function getStaticProps() {
 const Index = ({ readme }: { readme: string }) =>
     <div className={"markdown-body"}>
       <ReactMarkdown>{readme}</ReactMarkdown>
-      <hr />
       <DataTable
           columns={[ { name: "Str" }, { name: "Num" } ]}
           data={[ { Str: "A", Num: 1 } ]}
@@ -85,6 +84,7 @@ Expected server HTML to contain a matching <span> in <nav>.
 
 Commenting out [the `pagination` property] avoids the issue; [react-data-table-component#649] and [this StackOverflow][SO] describe the same.
 
+---
 
 [react-data-table-component]: https://github.com/jbetancur/react-data-table-component
 [localhost:3000]: http://localhost:3000
