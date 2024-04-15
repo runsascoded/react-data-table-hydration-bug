@@ -1,5 +1,5 @@
-# [react-data-table-hydration-bug]
-Repro of a [hydration error][react#418] in [react-data-table-component]'s [`Pagination` element][PaginationWrapper].
+# react-data-table-hydration-bug
+Repro of a [hydration error][react#418] in [react-data-table-component]'s [`Pagination` element][PaginationWrapper] ([github]).
 
 [When the client window width][shouldShow] is < [599px][`SMALL`] or `undefined` (as during [SSR]), "rows per page" in the pagination footer [is omitted][shouldShows]. This causes a hydration error whenever the client window width is ≥599, as it is omitted on the server but rendered on the client.
 
@@ -52,10 +52,10 @@ Uncaught Error: Minified React error #418; visit https://reactjs.org/docs/error-
 ```
 
 ## Local repro
-If you clone [the repo][react-data-table-hydration-bug], dev mode gives more details about the error (namely that it occurs in a hierarchy like `<nav>…<span>` in react-data-table-component's [pagination footer][PaginationWrapper]):
+If you clone [the repo][github], dev mode gives more details about the error (namely that it occurs in a hierarchy like `<nav>…<span>` in react-data-table-component's [pagination footer][PaginationWrapper]):
 
 ```bash
-git clone https://github.com/ryan-williams/react-data-table-hydration-bug && cd react-data-table-hydration-bug
+git clone https://github.com/runsascoded/react-data-table-hydration-bug && cd react-data-table-hydration-bug
 pnpm install
 npm run dev
 ```
@@ -105,7 +105,7 @@ Commenting out [the `pagination` property] avoids the issue; [react-data-table-c
 [//]: # (gh repo links)
 [index.tsx]: https://github.com/runsascoded/react-data-table-hydration-bug/blob/main/pages/index.tsx
 [the `pagination` property]: https://github.com/runsascoded/react-data-table-hydration-bug/blob/main/pages/index.tsx#L17
-[react-data-table-hydration-bug]: https://github.com/runsascoded/react-data-table-hydration-bug
+[github]: https://github.com/runsascoded/react-data-table-hydration-bug
 
 [//]: # (images)
 [error.gif]: error.gif
