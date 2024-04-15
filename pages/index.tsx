@@ -9,7 +9,6 @@ export function getStaticProps() {
 const Index = ({ readme }: { readme: string }) =>
     <div className={"markdown-body"}>
         <ReactMarkdown>{readme}</ReactMarkdown>
-        <hr />
         <DataTable
             columns={[ { name: "Str" }, { name: "Num" } ]}
             data={[ { Str: "A", Num: 1 } ]}
