@@ -89,7 +89,7 @@ Here is a simple table that reproduces the error on this page (when `window.inne
 
 
 [react-data-table-component]: https://github.com/jbetancur/react-data-table-component
-[localhost:3000]: http://localhost:3000
+[localhost:3000]: http://localhost:3000/
 
 [react#418]: https://react.dev/errors/418?invariant=418
 
