@@ -1,5 +1,7 @@
 # react-data-table-hydration-bug
-Repro of a [hydration error][react#418] in [react-data-table-component]'s [`Pagination` element][PaginationWrapper] ([github]).
+Repro of a [hydration error][react#418] in [react-data-table-component]'s [`Pagination` element][PaginationWrapper]:
+- Github: [runsascoded/react-data-table-hydration-bug][github]
+- Workaround: [react-data-table-component#1227].
 
 [When the client window width][shouldShow] is < [599px][`SMALL`] or `undefined` (as during [SSR]), "rows per page" in the pagination footer [is omitted][shouldShows]. This causes a hydration error whenever the client window width is ≥599, as it is omitted on the server but rendered on the client.
 
@@ -103,6 +105,7 @@ Here is a simple table that reproduces the error on this page (when `window.inne
 
 [SO]: https://stackoverflow.com/q/75068071
 [react-data-table-component#649]: https://github.com/jbetancur/react-data-table-component/issues/649
+[react-data-table-component#1227]: https://github.com/jbetancur/react-data-table-component/pull/1227
 
 [//]: # (gh repo links)
 [index.tsx]: https://github.com/runsascoded/react-data-table-hydration-bug/blob/main/pages/index.tsx
