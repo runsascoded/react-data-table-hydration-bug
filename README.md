@@ -90,7 +90,6 @@ Commenting out [the `pagination` property] avoids the issue; [react-data-table-c
 
 [react#418]: https://react.dev/errors/418?invariant=418
 
-[react-data-table-hydration-bug.runsascoded.com]: https://react-data-table-hydration-bug.runsascoded.com
 [GHA]: https://github.com/runsascoded/react-data-table-hydration-bug/actions
 [PaginationWrapper]: https://github.com/jbetancur/react-data-table-component/blob/v7.6.2/src/DataTable/Pagination.tsx#L20-L30
 
